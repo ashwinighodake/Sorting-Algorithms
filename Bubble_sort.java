@@ -1,21 +1,24 @@
 import java.lang.*;
 import java.util.*;
 
-class Insertion_sort
+class Bubble_sort
 {
-    public int[] insertion_sort(int arr[])
+    public int[] bubble_sort(int arr[])
     {
-        int temp=0,j=0,i=0;
-        for(i=1;i<arr.length;i++)
-        {
-            temp=arr[i];
-            for(j=i-1;(j>=0)&&(temp<arr[j]);j--)
-            {
-                arr[j+1]=arr[j];
-            }
-            arr[j+1]=temp;
-        }
-        return arr;
+        int i=0,j=0,temp=0;
+       for(i=1;i<arr.length;i++)
+       {
+          for(j=0;j<arr.length-i;j++)
+          {
+              if(arr[j]>arr[j+1])
+              {
+                  temp=arr[j];
+                  arr[j]=arr[j+1];
+                  arr[j+1]=temp;
+              }
+          }
+       }
+       return arr;
     }
     public static void main(String arg[])
     {
@@ -30,15 +33,15 @@ class Insertion_sort
            arr[i]=sobj.nextInt();
         }
         
-        int output[];
-        Insertion_sort obj=new Insertion_sort();
-        output=obj.insertion_sort(arr);
+        Bubble_sort obj=new Bubble_sort();
+        arr=obj.bubble_sort(arr);
        
         System.out.println("Sorted elements are:");
         for(int i=0;i<size;i++)
         {
-           System.out.print(output[i]+"\t");
+           System.out.print(arr[i]+"\t");
         }
-       
+ 
     }
+    
 }
